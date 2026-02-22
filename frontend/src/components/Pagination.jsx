@@ -7,24 +7,30 @@ export function Pagination({ page, totalPages, onChange }) {
   const nextDisabled = page >= totalPages;
 
   return (
-    <div className="mt-4 flex items-center justify-between text-xs text-slate-600">
-      <span>
-        Page {page} of {totalPages}
+    <div className="mt-8 flex items-center justify-between">
+      <span className="text-sm text-gray-500 font-light">
+        Page <span className="font-medium text-gray-900">{page}</span> of <span className="font-medium text-gray-900">{totalPages}</span>
       </span>
       <div className="flex gap-2">
         <button
           onClick={() => onChange(page - 1)}
           disabled={prevDisabled}
-          className="rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-50 disabled:opacity-50"
+          className="px-4 py-2 bg-white border border-gray-200 text-gray-700 rounded-xl hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2 text-sm font-medium"
         >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" />
+          </svg>
           Previous
         </button>
         <button
           onClick={() => onChange(page + 1)}
           disabled={nextDisabled}
-          className="rounded-md border border-slate-300 px-2 py-1 hover:bg-slate-50 disabled:opacity-50"
+          className="px-4 py-2 bg-white border border-gray-200 text-gray-700 rounded-xl hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2 text-sm font-medium"
         >
           Next
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+          </svg>
         </button>
       </div>
     </div>

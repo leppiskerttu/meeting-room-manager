@@ -65,30 +65,33 @@ export function RoomsPage() {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold text-gray-900 mb-4">
-          Available Meeting Rooms
-        </h1>
-
-        <div className="flex flex-col md:flex-row gap-4 mb-6">
-          <input
-            type="text"
-            placeholder="Search rooms..."
-            value={searchQuery}
-            onChange={(e) => {
-              setSearchQuery(e.target.value);
-              setCurrentPage(1);
-            }}
-            className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          />
+    <div className="px-8 py-8">
+      <div className="mb-8">
+        <div className="flex flex-col md:flex-row gap-4">
+          <div className="flex-1 relative">
+            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+              <svg className="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </div>
+            <input
+              type="text"
+              placeholder="Search rooms..."
+              value={searchQuery}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                setCurrentPage(1);
+              }}
+              className="w-full pl-12 pr-4 py-3.5 bg-white border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-900 focus:border-gray-900 transition-all text-sm shadow-sm"
+            />
+          </div>
           <select
             value={capacityFilter}
             onChange={(e) => {
               setCapacityFilter(e.target.value);
               setCurrentPage(1);
             }}
-            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="px-4 py-3.5 bg-white border border-gray-200 rounded-xl text-gray-900 focus:outline-none focus:ring-1 focus:ring-gray-900 focus:border-gray-900 transition-all text-sm shadow-sm"
           >
             <option value="">All capacities</option>
             <option value="2">2+ people</option>
@@ -100,19 +103,28 @@ export function RoomsPage() {
       </div>
 
       {error && (
-        <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-4">
+        <div className="mb-6 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 flex items-center gap-2">
+          <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+          </svg>
           {error}
         </div>
       )}
 
       {loading ? (
-        <div className="text-center py-12">
-          <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-          <p className="mt-4 text-gray-600">Loading rooms...</p>
+        <div className="text-center py-20">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-2 border-gray-300 border-t-gray-900"></div>
+          <p className="mt-6 text-gray-500 text-sm font-light">Loading rooms...</p>
         </div>
       ) : rooms.length === 0 ? (
-        <div className="text-center py-12">
-          <p className="text-gray-600 text-lg">No rooms found</p>
+        <div className="text-center py-20">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gray-100 mb-4">
+            <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+          </div>
+          <h3 className="text-lg font-medium text-gray-900 mb-2 tracking-tight">No rooms found</h3>
+          <p className="text-gray-500 text-sm font-light">Try adjusting your search or filters</p>
         </div>
       ) : (
         <>
@@ -141,14 +153,28 @@ export function RoomsPage() {
 
       {/* Booking Modal */}
       {showBookingModal && selectedRoom && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-lg p-6 w-full max-w-md">
-            <h2 className="text-2xl font-bold mb-4">
-              Book {selectedRoom.name}
-            </h2>
-            <form onSubmit={handleBookingSubmit}>
-              <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-3xl border border-gray-200 p-8 w-full max-w-md shadow-2xl">
+            <div className="flex items-center justify-between mb-8">
+              <h2 className="text-2xl font-light text-gray-900 tracking-tight">
+                Book {selectedRoom.name}
+              </h2>
+              <button
+                onClick={() => {
+                  setShowBookingModal(false);
+                  setSelectedRoom(null);
+                  setBookingForm({ startTime: "", endTime: "" });
+                }}
+                className="text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <form onSubmit={handleBookingSubmit} className="space-y-5">
+              <div>
+                <label className="block text-xs font-medium text-gray-600 mb-2 tracking-wide uppercase">
                   Start Time
                 </label>
                 <input
@@ -158,11 +184,11 @@ export function RoomsPage() {
                   onChange={(e) =>
                     setBookingForm({ ...bookingForm, startTime: e.target.value })
                   }
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 focus:outline-none focus:ring-1 focus:ring-gray-900 focus:border-gray-900 transition-all text-sm"
                 />
               </div>
-              <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+              <div>
+                <label className="block text-xs font-medium text-gray-600 mb-2 tracking-wide uppercase">
                   End Time
                 </label>
                 <input
@@ -172,10 +198,10 @@ export function RoomsPage() {
                   onChange={(e) =>
                     setBookingForm({ ...bookingForm, endTime: e.target.value })
                   }
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3.5 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 focus:outline-none focus:ring-1 focus:ring-gray-900 focus:border-gray-900 transition-all text-sm"
                 />
               </div>
-              <div className="flex gap-3">
+              <div className="flex gap-3 pt-4">
                 <button
                   type="button"
                   onClick={() => {
@@ -183,13 +209,13 @@ export function RoomsPage() {
                     setSelectedRoom(null);
                     setBookingForm({ startTime: "", endTime: "" });
                   }}
-                  className="flex-1 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50"
+                  className="flex-1 px-4 py-3 border border-gray-200 text-gray-700 rounded-xl hover:bg-gray-50 transition-all text-sm font-medium"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+                  className="flex-1 px-4 py-3 bg-gray-900 text-white font-medium rounded-xl hover:bg-gray-800 transition-all text-sm tracking-wide"
                 >
                   Book Room
                 </button>
