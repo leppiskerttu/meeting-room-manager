@@ -1,0 +1,10 @@
+{
+  "name": "meeting-room-booking-app",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ]
+}
+
+
