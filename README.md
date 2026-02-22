@@ -4,11 +4,13 @@ Production-ready fullstack MERN-sovellus kokoushuoneiden varausjärjestelmälle.
 
 <div align="center">
 
-<img src="https://github.com/user-attachments/assets/0dd7ed44-b2f0-4b3f-832a-d47a05d00ed9" width="800" alt="Dashboard screenshot" />
-
-<img src="https://github.com/user-attachments/assets/3e2565d4-5994-4930-aa48-e97503428aa9" width="400" alt="Room booking screenshot" />
-
-<img src="https://github.com/user-attachments/assets/8fc422d7-f7d6-4cd7-a0dd-df85740662e0" width="800" alt="Booking calendar screenshot" />
+<table>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/0dd7ed44-b2f0-4b3f-832a-d47a05d00ed9" width="300" alt="Dashboard screenshot" /></td>
+    <td><img src="https://github.com/user-attachments/assets/3e2565d4-5994-4930-aa48-e97503428aa9" width="300" alt="Room booking screenshot" /></td>
+    <td><img src="https://github.com/user-attachments/assets/8fc422d7-f7d6-4cd7-a0dd-df85740662e0" width="300" alt="Booking calendar screenshot" /></td>
+  </tr>
+</table>
 
 </div>
 
