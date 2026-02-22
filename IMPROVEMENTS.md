@@ -102,7 +102,4 @@ Tämä dokumentti listaa mahdollisia tulevia parannuksia ja lisäominaisuuksia.
 3. Kubernetes-deployment
 4. CDN
 
-## Huomioita
-
-Nämä ovat suunnitelmia ja ideoita. Prioriteetit voivat muuttua projektin kehityksen myötä. Jos haluat toteuttaa jonkin näistä ominaisuuksista, kannattaa aloittaa korkean prioriteetin kohteista.
 
