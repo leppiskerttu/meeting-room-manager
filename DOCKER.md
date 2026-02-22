@@ -133,8 +133,14 @@ docker-compose logs -f api
 # Käynnistä uudelleen backend
 docker-compose restart api
 
-# Aja komento backend-kontainerissa
+# Aja seed-scripti backend-kontainerissa
 docker-compose exec api npm run seed
+
+# Aja mikä tahansa komento backend-kontainerissa
+docker-compose exec api <komento>
+
+# Esimerkki: Aja Node.js-scripti
+docker-compose exec api node src/scripts/seed.js
 
 # Rakenna uudelleen
 docker-compose build
@@ -142,6 +148,17 @@ docker-compose build
 # Rakenna ja käynnistä
 docker-compose up -d --build
 ```
+
+## Seed-scriptin ajo Dockerissa
+
+Seed-scripti ajetaan automaattisesti kun kontaineri käynnistyy ensimmäisen kerran (jos tietokanta on tyhjä). Voit myös ajaa sen manuaalisesti:
+
+```bash
+# Aja seed-scripti (luo admin-käyttäjän ja 10 huonetta)
+docker-compose exec api npm run seed
+```
+
+**Huom**: Seed-scripti tyhjentää tietokannan. Jos haluat säilyttää olemassa olevat tiedot, kommentoi pois `deleteMany`-kutsut `backend/src/scripts/seed.js`-tiedostosta ennen ajoa.
 
 ## Ongelmanratkaisu
 
