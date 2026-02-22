@@ -2,9 +2,15 @@
 
 Production-ready fullstack MERN-sovellus kokoushuoneiden varausjärjestelmälle. Sovellus tarjoaa täydellisen ratkaisun kokoushuoneiden hallintaan ja varaamiseen, mukaan lukien käyttäjähallinnan, roolipohjaisen käyttöoikeuksien hallinnan, automaattisen päällekkäisten varausten eston ja kattavan logituksen.
 
-<img width="1919" height="949" alt="image" src="https://github.com/user-attachments/assets/0dd7ed44-b2f0-4b3f-832a-d47a05d00ed9" />
-<img width="700" height="684" alt="image" src="https://github.com/user-attachments/assets/3e2565d4-5994-4930-aa48-e97503428aa9" />
-<img width="1576" height="943" alt="image" src="https://github.com/user-attachments/assets/8fc422d7-f7d6-4cd7-a0dd-df85740662e0" />
+<div align="center">
+
+<img src="https://github.com/user-attachments/assets/0dd7ed44-b2f0-4b3f-832a-d47a05d00ed9" width="800" alt="Dashboard screenshot" />
+
+<img src="https://github.com/user-attachments/assets/3e2565d4-5994-4930-aa48-e97503428aa9" width="400" alt="Room booking screenshot" />
+
+<img src="https://github.com/user-attachments/assets/8fc422d7-f7d6-4cd7-a0dd-df85740662e0" width="800" alt="Booking calendar screenshot" />
+
+</div>
 
 
 
