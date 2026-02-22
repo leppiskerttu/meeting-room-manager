@@ -22,8 +22,7 @@ const userSchema = new mongoose.Schema(
   { timestamps: { createdAt: "createdAt", updatedAt: false } },
 );
 
-// Indexes for performance
-userSchema.index({ email: 1 }); // Unique index (already exists, but explicit for clarity)
+// Note: email index is automatically created by unique: true in schema
 
 const User = mongoose.model("User", userSchema);
 
